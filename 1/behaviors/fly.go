@@ -6,23 +6,20 @@ type FlyBehavior interface {
 	Fly()
 }
 
-type FlyOnWings struct {
-}
+type FlyOnWings struct{}
 
-func (flyOnWings *FlyOnWings) Fly() {
+func (FlyOnWings) Fly() {
 	fmt.Println("Я летаю на крыльях")
 }
 
-type FlyNoFly struct {
-}
+type NoFly struct{}
 
-func (flyNoFly *FlyNoFly) Fly() {
+func (NoFly) Fly() {
 	fmt.Println("Я не летаю")
 }
 
-type FlyRadio struct {
-}
+type RemoteFly struct{}
 
-func (flyRadio *FlyRadio) Fly() {
+func (RemoteFly) Fly() {
 	fmt.Println("Я летаю на радиоуправлении")
 }

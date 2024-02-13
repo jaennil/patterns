@@ -6,30 +6,26 @@ type QuackBehavior interface {
 	Quack()
 }
 
-type QuackLoud struct {
+type QuackRare struct{}
+
+func (QuackRare) Quack() {
+	fmt.Println("Я крякаю редко")
 }
 
-func (quackLoud *QuackLoud) Quack() {
-	fmt.Println("Я крякаю громко")
-}
+type NoQuack struct{}
 
-type QuackLong struct {
-}
-
-func (quackLong *QuackLong) Quack() {
-	fmt.Println("Я крякаю протяжно")
-}
-
-type QuackNoQuack struct {
-}
-
-func (quackNoQuack *QuackNoQuack) Quack() {
+func (NoQuack) Quack() {
 	fmt.Println("Я не крякаю")
 }
 
-type QuackRarely struct {
+type QuackLoud struct{}
+
+func (QuackLoud) Quack() {
+	fmt.Println("Я крякаю громко")
 }
 
-func (quackRarely *QuackRarely) Quack() {
-	fmt.Println("Я крякаю редко")
+type QuackLong struct{}
+
+func (QuackLong) Quack() {
+	fmt.Println("Я крякаю протяжно")
 }

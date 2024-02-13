@@ -1,63 +1,41 @@
 package main
 
 import (
-	"1/behaviors"
-	"1/ducks"
+	"3/behaviors"
+	"3/ducks"
 	"fmt"
 )
 
 func main() {
-
 	fmt.Println("Симуляция уток:")
 
-	saxonyDuck := ducks.SaxonyDuck{
-		Duck: ducks.Duck{
-			FlyBehavior:   &behaviors.FlyOnWings{},
-			QuackBehavior: &behaviors.QuackRarely{},
-		},
-	}
+	saxonyDuck := ducks.NewSaxonyDuck()
 	saxonyDuck.Display()
-	saxonyDuck.PerformQuack()
-	saxonyDuck.PerformFly()
+	saxonyDuck.Quack()
+	saxonyDuck.Fly()
 
 	fmt.Println()
 
-	rubberDuck := ducks.RubberDuck{
-		Duck: ducks.Duck{
-			FlyBehavior:   &behaviors.FlyNoFly{},
-			QuackBehavior: &behaviors.QuackNoQuack{},
-		},
-	}
-	rubberDuck.Display()
-	rubberDuck.PerformQuack()
-	rubberDuck.PerformFly()
-
-	fmt.Println()
-
-	decoyDuck := ducks.DecoyDuck{
-		Duck: ducks.Duck{
-			FlyBehavior:   &behaviors.FlyNoFly{},
-			QuackBehavior: &behaviors.QuackLoud{},
-		},
-	}
+	decoyDuck := ducks.NewDecoyDuck()
 	decoyDuck.Display()
-	decoyDuck.PerformQuack()
-	decoyDuck.PerformFly()
-	decoyDuck.SetFlyBehavior(&behaviors.FlyRadio{})
-	decoyDuck.PerformFly()
+	decoyDuck.Quack()
+	decoyDuck.Fly()
 
 	fmt.Println()
 
-	redheadDuck := ducks.RedheadDuck{
-		Duck: ducks.Duck{
-			FlyBehavior:   &behaviors.FlyOnWings{},
-			QuackBehavior: &behaviors.QuackNoQuack{},
-		},
-	}
-	redheadDuck.Display()
-	redheadDuck.PerformQuack()
-	redheadDuck.SetQuackBehavior(&behaviors.QuackLong{})
-	redheadDuck.PerformQuack()
-	redheadDuck.PerformFly()
+	rubberDuck := ducks.NewRubberDuck()
+	rubberDuck.Display()
+	rubberDuck.Quack()
+	rubberDuck.Fly()
+	rubberDuck.SetFlyBehavior(behaviors.RemoteFly{})
+	rubberDuck.Fly()
 
+	fmt.Println()
+
+	redheadDuck := ducks.NewRedheadDuck()
+	redheadDuck.Display()
+	redheadDuck.Quack()
+	redheadDuck.SetQuackBehavior(behaviors.QuackLong{})
+	redheadDuck.Quack()
+	redheadDuck.Fly()
 }

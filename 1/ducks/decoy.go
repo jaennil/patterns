@@ -1,12 +1,18 @@
 package ducks
 
-import "fmt"
+import (
+	"3/behaviors"
+	"fmt"
+)
 
-type DecoyDuck struct {
+type RubberDuck struct {
 	Duck
 }
 
-func (decoy *DecoyDuck) Display() {
-	fmt.Println("Утка-приманка")
+func NewRubberDuck() RubberDuck {
+	return RubberDuck{Duck{behaviors.NoFly{}, behaviors.QuackLoud{}}}
 }
 
+func (RubberDuck) Display() {
+	fmt.Println("Утка-приманка")
+}

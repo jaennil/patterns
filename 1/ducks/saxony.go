@@ -1,11 +1,18 @@
 package ducks
 
-import "fmt"
+import (
+	"3/behaviors"
+	"fmt"
+)
 
 type SaxonyDuck struct {
 	Duck
 }
 
-func (saxonyDuck *SaxonyDuck) Display() {
+func NewSaxonyDuck() SaxonyDuck {
+	return SaxonyDuck{Duck{behaviors.FlyOnWings{}, behaviors.QuackRare{}}}
+}
+
+func (SaxonyDuck) Display() {
 	fmt.Println("Саксонская утка")
 }
