@@ -1,0 +1,53 @@
+@startuml
+namespace beverages {
+    interface Beverage  {
+        + GetDescription() string
+        + Cost() int
+
+    }
+    class DarkRoast << (S,Aquamarine) >> {
+        + Cost() int
+        + GetDescription() string
+
+    }
+    class Decaf << (S,Aquamarine) >> {
+        + Cost() int
+        + GetDescription() string
+
+    }
+}
+"beverages.Beverage" *-- "beverages.DarkRoast"
+"beverages.Beverage" *-- "beverages.Decaf"
+
+"beverages.Beverage" <|-- "beverages.DarkRoast"
+"flavors.Flavor" <|-- "beverages.DarkRoast"
+"beverages.Beverage" <|-- "beverages.Decaf"
+"flavors.Flavor" <|-- "beverages.Decaf"
+
+namespace flavors {
+    interface Flavor  {
+        + GetDescription() string
+
+    }
+    class Mocha << (S,Aquamarine) >> {
+        + Beverage beverages.Beverage
+
+        + Cost() int
+        + GetDescription() string
+
+    }
+    class Whip << (S,Aquamarine) >> {
+        + Beverage beverages.Beverage
+
+        + Cost() int
+        + GetDescription() string
+
+    }
+}
+
+"beverages.Beverage" <|-- "flavors.Mocha"
+"flavors.Flavor" <|-- "flavors.Mocha"
+"beverages.Beverage" <|-- "flavors.Whip"
+"flavors.Flavor" <|-- "flavors.Whip"
+
+@enduml
