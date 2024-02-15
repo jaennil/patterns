@@ -34,9 +34,10 @@ func printMenu() {
 }
 
 func printOrderCost(beverage beverages.IBeverage) {
-	fmt.Println("---Total Order Cost---")
+	fmt.Println("---Order---")
+	fmt.Println(beverage.Description())
 	fmt.Println(beverage.Cost(), "$")
-	fmt.Println("----------------------")
+	fmt.Println("-----------")
 	fmt.Println()
 }
 
