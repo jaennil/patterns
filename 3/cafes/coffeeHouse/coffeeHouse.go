@@ -1,6 +1,7 @@
-package cafes
+package coffeeHouse
 
 import (
+	"3/cafes"
 	"3/cafes/coffeeHouse/products/beverages"
 	"3/cafes/coffeeHouse/products/flavors"
 	"fmt"
@@ -26,6 +27,14 @@ const (
 	soy
 	whip
 )
+
+const (
+	darkroast = iota + 1
+	houseblend
+	decaf
+	espresso
+)
+
 
 var operations = `
 *****Operations*****
@@ -70,43 +79,43 @@ var menu = fmt.Sprintf(`
 "**************"
 `, darkRoastCost, houseBlendCost, decafCost, espressoCost, milkCost, mochaCost, soyCost, whipCost)
 
-type beverageCafe struct {
-	Cafe
+type coffeeHouse struct {
+	cafes.Cafe
 }
 
-func NewBeverageCafe() beverageCafe {
-	return beverageCafe{}
+func NewCoffeeHouse() coffeeHouse {
+	return coffeeHouse{}
 }
 
-func (beverageCafe) Operations() string {
+func (coffeeHouse) Operations() string {
 	return operations
 }
 
-func (beverageCafe) BeveragesMenu() string {
+func (coffeeHouse) BeveragesMenu() string {
 	return beveragesMenu
 }
 
-func (beverageCafe) FlavorsMenu() string {
+func (coffeeHouse) FlavorsMenu() string {
 	return flavorsMenu
 }
 
-func (beverageCafe) Menu() string {
+func (coffeeHouse) Menu() string {
 	return menu
 }
 
-func (cafe beverageCafe) AddFlavor(flavorType int) error {
+func (cafe coffeeHouse) AddFlavor(flavorType int) error {
 
-	if len(cafe.orders) == 0 {
+	if len(cafe.Orders) == 0 {
 		return fmt.Errorf("no orders")
 	}
 
-	lastOrder := &cafe.orders[len(cafe.orders)-1]
+	lastOrder := &cafe.Orders[len(cafe.Orders)-1]
 
-	if len(lastOrder.products) == 0 {
+	if len(lastOrder.Products) == 0 {
 		return fmt.Errorf("no products inside order")
 	}
 
-	lastBeverage := &lastOrder.products[len(lastOrder.products)-1]
+	lastBeverage := &lastOrder.Products[len(lastOrder.Products)-1]
 
 	switch flavorType {
 	case milk:
@@ -124,12 +133,12 @@ func (cafe beverageCafe) AddFlavor(flavorType int) error {
 
 }
 
-func (cafe beverageCafe) OrderBeverage(beverageType int) error {
-	if len(cafe.orders) == 0 {
+func (cafe coffeeHouse) OrderBeverage(beverageType int) error {
+	if len(cafe.Orders) == 0 {
 		return fmt.Errorf("no orders")
 	}
 
-	lastOrder := &cafe.orders[len(cafe.orders)-1]
+	lastOrder := &cafe.Orders[len(cafe.Orders)-1]
 
 	var beverage beverages.IBeverage
 	switch beverageType {
@@ -145,7 +154,7 @@ func (cafe beverageCafe) OrderBeverage(beverageType int) error {
 		return fmt.Errorf("unknown beverage type")
 	}
 
-	lastOrder.products = append(lastOrder.products, beverage)
+	lastOrder.Products = append(lastOrder.Products, beverage)
 
 	return nil
 }

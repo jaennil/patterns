@@ -5,13 +5,6 @@ import (
 	"fmt"
 )
 
-const (
-	darkroast = iota + 1
-	houseblend
-	decaf
-	espresso
-)
-
 type ICafe interface {
 	PrintMenu()
 	newOrder()
@@ -19,28 +12,28 @@ type ICafe interface {
 }
 
 type order struct {
-	products []products.IProduct
+	Products []products.IProduct
 }
 
 type Cafe struct {
-	orders []order
+	Orders []order
 }
 
 func (cafe Cafe) Order() (string, error) {
 
 	var order = "***Order***\n"
 
-	if len(cafe.orders) == 0 {
+	if len(cafe.Orders) == 0 {
 		return "", fmt.Errorf("no orders")
 	}
 
-	lastOrder := cafe.orders[len(cafe.orders)-1]
+	lastOrder := cafe.Orders[len(cafe.Orders)-1]
 
-	if len(lastOrder.products) == 0 {
+	if len(lastOrder.Products) == 0 {
 		return "", fmt.Errorf("no products in order")
 	}
 
-	for _, product := range lastOrder.products {
+	for _, product := range lastOrder.Products {
 		order += fmt.Sprintf("%v %v $\n", product.Description(), product.Cost())
 	}
 
@@ -50,5 +43,5 @@ func (cafe Cafe) Order() (string, error) {
 }
 
 func (cafe *Cafe) NewOrder() {
-	cafe.orders = append(cafe.orders, order{})
+	cafe.Orders = append(cafe.Orders, order{})
 }

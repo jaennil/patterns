@@ -1,7 +1,7 @@
 package main
 
 import (
-	"3/cafes"
+	"3/cafes/coffeeHouse"
 	"fmt"
 )
 
@@ -21,7 +21,7 @@ func readUserInput() (int, error) {
 }
 
 func main() {
-	cafe := cafes.NewBeverageCafe()
+	cafe := coffeeHouse.NewCoffeeHouse()
 
 	for {
 		fmt.Print(cafe.Operations())
