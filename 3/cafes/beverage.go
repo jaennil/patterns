@@ -106,17 +106,17 @@ func (cafe beverageCafe) AddFlavor(flavorType int) error {
 		return fmt.Errorf("no products inside order")
 	}
 
-	lastBeverage := lastOrder.products[len(lastOrder.products)-1]
+	lastBeverage := &lastOrder.products[len(lastOrder.products)-1]
 
 	switch flavorType {
 	case milk:
-		lastOrder.products[len(lastOrder.products)-1] = flavors.NewMilk(lastBeverage)
+		*lastBeverage = flavors.NewMilk(*lastBeverage)
 	case mocha:
-		lastOrder.products[len(lastOrder.products)-1] = flavors.NewMocha(lastBeverage)
+		*lastBeverage = flavors.NewMocha(*lastBeverage)
 	case soy:
-		lastOrder.products[len(lastOrder.products)-1] = flavors.NewSoy(lastBeverage)
+		*lastBeverage = flavors.NewSoy(*lastBeverage)
 	case whip:
-		lastOrder.products[len(lastOrder.products)-1] = flavors.NewWhip(lastBeverage)
+		*lastBeverage = flavors.NewWhip(*lastBeverage)
 	default:
 		return fmt.Errorf("unknown flavor type")
 	}
