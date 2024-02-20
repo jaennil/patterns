@@ -27,6 +27,16 @@ const (
 	whip
 )
 
+var operations = `
+*****Operations*****
+1. Print menu
+2. Order beverage
+3. Add flavor
+4. New Order
+any. Exit
+********************
+`
+
 var beveragesMenu = fmt.Sprintf(`
 ---Beverages---
 1. Dark Roast %v$
@@ -45,6 +55,21 @@ var flavorsMenu = fmt.Sprintf(`
 -------------
 `, milkCost, mochaCost, soyCost, whipCost)
 
+var menu = fmt.Sprintf(`
+*****Menu*****
+---Beverages---
+1. Dark Roast %v$
+2. House Blend %v$
+3. Decaf %v$
+4. Espresso %v$
+"---Flavors---
+1. Milk %v$
+2. Mocha %v$
+3. Soy %v$
+4. Whip %v$
+"**************"
+`, darkRoastCost, houseBlendCost, decafCost, espressoCost, milkCost, mochaCost, soyCost, whipCost)
+
 type beverageCafe struct {
 	Cafe
 }
@@ -53,37 +78,20 @@ func NewBeverageCafe() beverageCafe {
 	return beverageCafe{}
 }
 
-func (beverageCafe) PrintOperations() {
-	fmt.Println("*****Operations*****")
-	fmt.Println("1. Print menu")
-	fmt.Println("2. Order beverage")
-	fmt.Println("3. Add flavor")
-	fmt.Println("4. New Order")
-	fmt.Println("any. Exit")
-	fmt.Println("********************")
+func (beverageCafe) Operations() string {
+	return operations
 }
 
-func (cafe beverageCafe) BeveragesMenu() string {
+func (beverageCafe) BeveragesMenu() string {
 	return beveragesMenu
 }
 
-func (cafe beverageCafe) FlavorsMenu() string {
+func (beverageCafe) FlavorsMenu() string {
 	return flavorsMenu
 }
 
-func (cafe beverageCafe) PrintMenu() {
-	fmt.Println("*****Menu*****")
-	fmt.Println("---Beverages---")
-	fmt.Printf("1. Dark Roast %v$\n", darkRoastCost)
-	fmt.Printf("2. House Blend %v$\n", houseBlendCost)
-	fmt.Printf("3. Decaf %v$\n", decafCost)
-	fmt.Printf("4. Espresso %v$\n", espressoCost)
-	fmt.Println("---Flavors---")
-	fmt.Printf("1. Milk %v$\n", milkCost)
-	fmt.Printf("2. Mocha %v$\n", mochaCost)
-	fmt.Printf("3. Soy %v$\n", soyCost)
-	fmt.Printf("4. Whip %v$\n", whipCost)
-	fmt.Println("**************")
+func (beverageCafe) Menu() string {
+	return menu
 }
 
 func (cafe beverageCafe) AddFlavor(flavorType int) error {

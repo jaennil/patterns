@@ -16,6 +16,7 @@ func readUserInput() (int, error) {
 	fmt.Print(">> ")
 	var input int
 	_, err := fmt.Scanln(&input)
+	fmt.Println()
 	return input, err
 }
 
@@ -23,7 +24,7 @@ func main() {
 	cafe := cafes.NewBeverageCafe()
 
 	for {
-		cafe.PrintOperations()
+		fmt.Print(cafe.Operations())
 
 		operationType, err := readUserInput()
 		if err != nil {
@@ -33,8 +34,8 @@ func main() {
 
 		switch operationType {
 		case printmenu:
-			cafe.PrintMenu()
-			fmt.Println()
+			fmt.Println(cafe.Menu())
+			continue
 		case createbeverage:
 			fmt.Print(cafe.BeveragesMenu())
 
@@ -64,10 +65,11 @@ func main() {
 			continue
 		}
 
-		err = cafe.PrintOrder()
+		order, err := cafe.Order()
 		if err != nil {
 			fmt.Println(err)
 			continue
 		}
+		fmt.Println(order)
 	}
 }
