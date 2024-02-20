@@ -14,3 +14,9 @@ type IBeverage interface {
 	Cost() float64
 	Description() string
 }
+
+type beverage struct {
+	cost float64
+	description string
+	size float64
+}

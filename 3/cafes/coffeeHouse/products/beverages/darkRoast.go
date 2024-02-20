@@ -1,14 +1,15 @@
 package beverages
 
-var darkRoastCost float64 = 1
-
 type darkRoast struct {
-	cost        float64
 	description string
+	cost        float64
 }
 
-func NewDarkRoast() darkRoast {
-	return darkRoast{darkRoastCost, "Dark Roast"}
+func NewDarkRoast(cost float64) darkRoast {
+	return darkRoast{
+		description: "DarkRoast",
+		cost:        cost,
+	}
 }
 
 func (darkRoast darkRoast) Cost() float64 {

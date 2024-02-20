@@ -3,12 +3,17 @@ package beverages
 var decafCost float64 = 4
 
 type decaf struct {
-	cost        float64
-	description string
+	beverage
 }
 
-func NewDecaf() decaf {
-	return decaf{decafCost, "Decaf"}
+func NewDecaf(size float64) decaf {
+	return decaf{
+		beverage{
+			cost:        decafCost,
+			description: "Decaf",
+			size:        size,
+		},
+	}
 }
 
 func (decaf decaf) Cost() float64 {

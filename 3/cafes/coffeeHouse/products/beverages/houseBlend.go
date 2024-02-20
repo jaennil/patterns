@@ -1,14 +1,15 @@
 package beverages
 
-var houseBlendCost float64 = 2
-
 type houseBlend struct {
-	cost        float64
 	description string
+	cost        float64
 }
 
-func NewHouseBlend() houseBlend {
-	return houseBlend{houseBlendCost, "House Blend"}
+func NewHouseBlend(cost float64) houseBlend {
+	return houseBlend{
+		description: "House Blend",
+		cost:        cost,
+	}
 }
 
 func (houseBlend houseBlend) Cost() float64 {
