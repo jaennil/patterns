@@ -34,7 +34,7 @@ func (cafe Cafe) Order() (string, error) {
 	}
 
 	for _, product := range lastOrder.Products {
-		order += fmt.Sprintf("%v %v $\n", product.Description(), product.Cost())
+		order += fmt.Sprintf("%v %v$\n", product.Description(), product.Cost())
 	}
 
 	order += "***********"

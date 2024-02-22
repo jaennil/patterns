@@ -1,16 +1,18 @@
 package beverages
 
+import "fmt"
+
 type decaf struct {
-	description string
-	cost        float64
-	size        float64
+	beverage
 }
 
 func NewDecaf(cost, size float64) decaf {
 	return decaf{
-		description: "Decaf",
-		cost:        cost,
-		size:        size,
+		beverage{
+			description: "Decaf",
+			cost:        cost,
+			size:        size,
+		},
 	}
 }
 
@@ -19,5 +21,5 @@ func (decaf decaf) Cost() float64 {
 }
 
 func (decaf decaf) Description() string {
-	return decaf.description
+	return fmt.Sprintf("%v %gL", decaf.description, decaf.size)
 }

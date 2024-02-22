@@ -1,16 +1,18 @@
 package beverages
 
+import "fmt"
+
 type espresso struct {
-	cost        float64
-	description string
-	size        float64
+	beverage
 }
 
 func NewEspresso(cost, size float64) espresso {
 	return espresso{
-		description: "Espresso",
-		cost:        cost,
-		size:        size,
+		beverage{
+			description: "Espresso",
+			cost:        cost,
+			size:        size,
+		},
 	}
 }
 
@@ -19,5 +21,5 @@ func (espresso espresso) Cost() float64 {
 }
 
 func (espresso espresso) Description() string {
-	return espresso.description
+	return fmt.Sprintf("%v %gL", espresso.description, espresso.size)
 }

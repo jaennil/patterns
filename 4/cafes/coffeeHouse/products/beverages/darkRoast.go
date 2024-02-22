@@ -1,16 +1,18 @@
 package beverages
 
+import "fmt"
+
 type darkRoast struct {
-	description string
-	cost        float64
-	size        float64
+	beverage
 }
 
 func NewDarkRoast(cost, size float64) darkRoast {
 	return darkRoast{
-		description: "DarkRoast",
-		cost:        cost,
-		size:        size,
+		beverage{
+			description: "Dark Roast",
+			cost:        cost,
+			size:        size,
+		},
 	}
 }
 
@@ -19,5 +21,5 @@ func (darkRoast darkRoast) Cost() float64 {
 }
 
 func (darkRoast darkRoast) Description() string {
-	return darkRoast.description
+	return fmt.Sprintf("%v %gL", darkRoast.description, darkRoast.size)
 }

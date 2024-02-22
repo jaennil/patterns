@@ -1,16 +1,18 @@
 package beverages
 
+import "fmt"
+
 type houseBlend struct {
-	description string
-	cost        float64
-	size        float64
+	beverage
 }
 
 func NewHouseBlend(cost, size float64) houseBlend {
 	return houseBlend{
-		description: "House Blend",
-		cost:        cost,
-		size:        size,
+		beverage{
+			description: "House Blend",
+			cost:        cost,
+			size:        size,
+		},
 	}
 }
 
@@ -19,5 +21,5 @@ func (houseBlend houseBlend) Cost() float64 {
 }
 
 func (houseBlend houseBlend) Description() string {
-	return houseBlend.description
+	return fmt.Sprintf("%v %gL", houseBlend.description, houseBlend.size)
 }

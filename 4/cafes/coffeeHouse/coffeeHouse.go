@@ -67,23 +67,21 @@ any. Exit
 ********************
 `
 
-var beveragesOperations =
-`---Beverages---
+var beveragesOperations = `---Beverages---
 1. Dark Roast
 2. House Blend
 3. Decaf
 4. Espresso
 `
 
-var beverageSizes =
-`---Beverage Sizes---
+var beverageSizes = `---Beverage Sizes---
 1. Small (0.4 L)
 2. Medium (0.6 L)
 3. Large (0.8 L)
 `
 
 var beveragesMenu = fmt.Sprintf(
-`---Beverages---
+	`---Beverages---
 1. Dark Roast Small(0.4 L) %v $
 2. Dark Roast Medium(0.6 L) %v $
 3. Dark Roast Large(0.8 L) %v $
@@ -109,7 +107,8 @@ var beveragesMenu = fmt.Sprintf(
 	beverageCost[beverages.Espresso][medium],
 	beverageCost[beverages.Espresso][large])
 
-var flavorsMenu = fmt.Sprintf(`---Flavors---
+var flavorsMenu = fmt.Sprintf(
+	`---Flavors---
 1. Milk %v$
 2. Mocha %v$
 3. Soy %v$
