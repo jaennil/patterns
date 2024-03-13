@@ -1,0 +1,120 @@
+@startuml
+skinparam linetype ortho
+namespace main {
+    class activatedState << (S,Aquamarine) >> {
+        - gumballMachine *gumballMachine
+
+        - insertCoin() 
+        - pullCoin() 
+        - activate() 
+        - pullPrize() 
+
+    }
+    class doublePrizeState << (S,Aquamarine) >> {
+        - gumballMachine *gumballMachine
+
+        - insertCoin() 
+        - pullCoin() 
+        - activate() 
+        - pullPrize() 
+
+    }
+    
+    class hasCoinState << (S,Aquamarine) >> {
+        - gumballMachine *gumballMachine
+
+        - insertCoin() 
+        - pullCoin() 
+        - activate() 
+        - pullPrize() 
+
+    }
+    class megaPrizeState << (S,Aquamarine) >> {
+        - gumballMachine *gumballMachine
+
+        - insertCoin() 
+        - pullCoin() 
+        - activate() 
+        - pullPrize() 
+
+    }
+    class noCoinState << (S,Aquamarine) >> {
+        - gumballMachine *gumballMachine
+
+        - insertCoin() 
+        - pullCoin() 
+        - activate() 
+        - pullPrize() 
+
+    }
+    class prizesAwardedState << (S,Aquamarine) >> {
+        - gumballMachine *gumballMachine
+
+        - insertCoin() 
+        - pullCoin() 
+        - activate() 
+        - pullPrize() 
+
+    }
+    interface state  {
+        - insertCoin() 
+        - pullCoin() 
+        - activate() 
+        - pullPrize() 
+
+    }
+    class toyPrizeState << (S,Aquamarine) >> {
+        - gumballMachine *gumballMachine
+
+        - insertCoin() 
+        - pullCoin() 
+        - activate() 
+        - pullPrize() 
+
+    }
+class gumballMachine << (S,Aquamarine) >> {
+        - gumballsAmount int
+        - toysAmount int
+        - noCoinState *noCoinState
+        - hasCoinState *hasCoinState
+        - activatedState *activatedState
+        - prizesAwardedState *prizesAwardedState
+        - doublePrizeState *doublePrizeState
+        - toyPrizeState *toyPrizeState
+        - megaPrizeState *megaPrizeState
+        - state state
+
+        - insertCoin() 
+        - pullCoin() 
+        - activate() 
+        - pullPrize() 
+        - setState(state state) 
+        - decreaseGumball() 
+        - decreaseToy() 
+        - leftPrizes() (int, int, error)
+        - askForRefill() error
+
+        + HasCoinState() *hasCoinState
+        + NoCoinState() *noCoinState
+        + ActivatedState() *activatedState
+        + PrizesAwardedState() *prizesAwardedState
+        + DoublePrizeState() *doublePrizeState
+        + ToyPrizeState() *toyPrizeState
+        + MegaPrizeState() *megaPrizeState
+        + GumballsAmount() int
+        + ToysAmount() int
+
+    }
+}
+
+"main.state" <|-- "main.activatedState"
+"main.state" <|-- "main.doublePrizeState"
+"main.state" <|-- "main.hasCoinState"
+"main.state" <|-- "main.megaPrizeState"
+"main.state" <|-- "main.noCoinState"
+"main.state" <|-- "main.prizesAwardedState"
+"main.state" <|-- "main.toyPrizeState"
+"main.state" <-- "main.gumballMachine"
+
+@enduml
+
