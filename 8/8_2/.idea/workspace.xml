@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a5cd88eb-5c12-4d36-a637-86330c273c1e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../4/cafes/coffeeHouse/products/beverages/smallVolumeFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/../../4/cafes/coffeeHouse/products/beverages/smallVolumeFactory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CoffeeShop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DumplingsShop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/IMenuItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MenuItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MenuIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pizzeria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Restaurant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8/8.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8/CoffeeShop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8/CoffeeShopMenuIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8/MenuIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8/Pizzeria.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8/PizzeriaMenuIterator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/8/Restaurant.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2dbbLitYkIwHH04gGeU7wbTcplR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main (1).executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/jaennil/82patterns",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a5cd88eb-5c12-4d36-a637-86330c273c1e" name="Changes" comment="" />
+      <created>1710279671067</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1710279671067</updated>
+      <workItem from="1710279672122" duration="190000" />
+      <workItem from="1710279962332" duration="294000" />
+      <workItem from="1710280281921" duration="92000" />
+      <workItem from="1710280383759" duration="99000" />
+      <workItem from="1710280483771" duration="15000" />
+      <workItem from="1710280507922" duration="86000" />
+      <workItem from="1710280640011" duration="7000" />
+      <workItem from="1710280648747" duration="37000" />
+      <workItem from="1710280695192" duration="521000" />
+      <workItem from="1710281260727" duration="295000" />
+      <workItem from="1710281556579" duration="32000" />
+      <workItem from="1710281589703" duration="11000" />
+      <workItem from="1710281609526" duration="222000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
