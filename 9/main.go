@@ -33,7 +33,8 @@ func main() {
 2. pull coin
 3. activate machine
 4. pull prize
-5. print left prizes`)
+5. print left prizes
+6. ask for refill`)
 		_, err = fmt.Scanln(&action)
 		if err != nil {
 			fmt.Println("wrong input")
@@ -57,6 +58,14 @@ func main() {
 			}
 
 			fmt.Printf("gumballs left: %v\ntoysLeft: %v\n", gumballsLeft, toysLeft)
+		case 6:
+			err = gumballMachine.askForRefill()
+			if err == nil {
+				fmt.Println("asked to refill")
+				continue
+			}
+
+			fmt.Println("faled to ask for refill: ", err)
 		}
 	}
 }

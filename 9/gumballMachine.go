@@ -110,3 +110,11 @@ func (m *gumballMachine) leftPrizes() (gumballsAmount, toysAmount int, err error
 
 	return -1, -1, fmt.Errorf("left prizes can be known only in noCoinState")
 }
+
+func (m *gumballMachine) askForRefill() error {
+	if m.GumballsAmount() > 0 && m.ToysAmount() > 0 {
+		return fmt.Errorf("there are left prizes")
+	}
+
+	return nil
+}
