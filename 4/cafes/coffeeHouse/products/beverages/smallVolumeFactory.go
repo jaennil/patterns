@@ -7,6 +7,7 @@ const (
 	Houseblend
 	Decaf
 	Espresso
+	Tea
 )
 
 type SmallVolumeFactory struct {
@@ -22,6 +23,8 @@ func (SmallVolumeFactory) CreateBeverage(beverageType int, cost float64) (IBever
 		return NewDecaf(cost, .4), nil
 	case Espresso:
 		return NewEspresso(cost, .4), nil
+	case Tea:
+		return 
 	default:
 		return nil, fmt.Errorf("unknown beverage type")
 	}
