@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 )
 
 type hasCoinState struct {
@@ -23,6 +24,25 @@ func (s *hasCoinState) pullCoin() {
 
 func (s *hasCoinState) activate() {
 	fmt.Println("activated")
+
+	toyRand := rand.Float32()
+	doubleRand := rand.Float32()
+
+	if toyRand < 0.15 && doubleRand < 0.1 && s.gumballMachine.GumballsAmount() > 1 && s.gumballMachine.ToysAmount() > 0 {
+		s.gumballMachine.setState(s.gumballMachine.MegaPrizeState())
+		return
+	}
+
+	if toyRand < 0.15 && s.gumballMachine.ToysAmount() > 0 {
+		s.gumballMachine.setState(s.gumballMachine.ToyPrizeState())
+		return
+	}
+
+	if doubleRand < 0.1 && s.gumballMachine.GumballsAmount() > 1 {
+		s.gumballMachine.setState(s.gumballMachine.DoublePrizeState())
+		return
+	}
+
 	s.gumballMachine.setState(s.gumballMachine.ActivatedState())
 }
 

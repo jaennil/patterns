@@ -13,18 +13,30 @@ func main() {
 
 	fmt.Println()
 
-	gumballMachine := NewGumballMachine(gumballsAmount)
+	fmt.Print("toys amount: ")
+	var toysAmount int
+	_, err = fmt.Scanln(&toysAmount)
+	if err != nil {
+		fmt.Println("wrong input")
+		return
+	}
+
+	fmt.Println()
+
+	gumballMachine := NewGumballMachine(gumballsAmount, toysAmount)
 
 	var action int
 
 	for {
-		fmt.Println(`1. insert coin
+		fmt.Println(`
+1. insert coin
 2. pull coin
 3. activate machine
-4. pull prize`)
+4. pull prize
+5. print left prizes`)
 		_, err = fmt.Scanln(&action)
 		if err != nil {
-			fmt.Println("wring input")
+			fmt.Println("wrong input")
 			return
 		}
 
@@ -37,6 +49,14 @@ func main() {
 			gumballMachine.activate()
 		case 4:
 			gumballMachine.pullPrize()
+		case 5:
+			gumballsLeft, toysLeft, err := gumballMachine.leftPrizes()
+			if err != nil {
+				fmt.Println(err)
+				continue
+			}
+
+			fmt.Printf("gumballs left: %v\ntoysLeft: %v\n", gumballsLeft, toysLeft)
 		}
 	}
 }

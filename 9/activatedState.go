@@ -25,12 +25,12 @@ func (activatedState) activate() {
 }
 
 func (s *activatedState) pullPrize() {
+	s.gumballMachine.decreaseGumball()
+	fmt.Println("you pulled the prize")
 	if s.gumballMachine.GumballsAmount() > 0 {
-		fmt.Println("you pulled the prize")
 		s.gumballMachine.setState(s.gumballMachine.NoCoinState())
-		s.gumballMachine.decreaseGumball()
 	} else {
-		fmt.Println("all prizes already awarded")
+		fmt.Println("all prizes awarded")
 		s.gumballMachine.setState(s.gumballMachine.PrizesAwardedState())
 	}
 }
