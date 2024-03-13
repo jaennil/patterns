@@ -1,0 +1,47 @@
+@startuml
+skinparam classAttributeIconSize 0
+class WeatherData{
+- observers : List<Observer>
+- temperature : float
+- humidity : float
+- pressure : float
++ WeatherData()
++ registerObserver(o : Observer) : void
++ removeObserver(o : Observer) : void
++ notifyObservers() : void
++ setMeasurements(temperature : float, humidity : float, pressure : float) : void
++ getTemperature() : float
++ getHumidity() : float
++ getPressure() : float
+}
+WeatherData ..|> Subject
+
+class WeatherStation{
+- weatherData : WeatherData
++ WeatherStation()
+- handleSensorDevice(temperature : float, humidity : float, pressure : float) : void
+}
+
+class Display{
+- weatherData : WeatherData
++ Display(weatherData : WeatherData)
++ update() : void
++ display() : void
+}
+Display ..|> Observer
+Display ..|> IDisplay
+WeatherStation--"- weatherData" WeatherData
+Display--"- weatherData" WeatherData
+interface Observer{
++ update() : void
+}
+interface IDisplay {
++ display() : void
+}
+interface Subject{
++ registerObserver(o : Observer) : void
++ removeObserver(o : Observer) : void
++ notifyObservers() : void
+}
+@enduml
+
