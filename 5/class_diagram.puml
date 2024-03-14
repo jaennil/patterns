@@ -1,0 +1,80 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class Display {
+  - temperatureCommand: Command
+  - humidityCommand: Command
+  - lightCommand: Command
+  - undoCommand: Command
+  + Display()
+  + temperatureWasSet(temperature int): void
+  + temperatureWasSaved(): void
+  + humidityWasSet(humidity int): void
+  + humidityWasSaved(): void
+  + lightWasSet(light int): void
+  + lightWasSaved(): void
+  + undoButtonWasPushed() : void
+}
+
+class LightSensor {
+  light : int
+  + LightSensor()
+  + setLight(): void
+  + getLight(): void
+}
+
+class HumiditySensor {
+  humidity : int
+  + HumiditySensor()
+  + setHumidity(): void
+  + getHumidity(): void
+}
+
+class TemperatureSensor {
+  temperature : int
+  + TemperatureSensor()
+  + setTemperature(): void
+  + getTemperature(): void
+}
+
+class SetLightCommand {
+  lightSensor : LightSensor
+  prevLight : int
+  + SetLightCommand(lightSensor: LightSensor)
+  + execute() : void
+  + undo() : void
+}
+
+class SetTemperatureCommand {
+  temperatureSensor : TemperatureSensor
+  prevTemperature : int
+  + SetTemperatureCommand(temperatureSensor: TemperatureSensor)
+  + execute() : void
+  + undo() : void
+}
+
+class SetHumidityCommand {
+  humiditySensor : HumiditySensor
+  prevHumidity : int
+  + SetHumidityCommand(humiditySensor: HumiditySensor)
+  + execute() : void
+  + undo() : void
+}
+
+interface Command{
+  + execute() : void
+  + undo() : void
+}
+
+Display --> Command
+Command <|.. SetTemperatureCommand
+Command <|.. SetHumidityCommand
+Command <|.. SetLightCommand
+SetTemperatureCommand --> TemperatureSensor
+SetLightCommand --> LightSensor
+SetHumidityCommand --> HumiditySensor
+
+@enduml
+
+
