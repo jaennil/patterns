@@ -1,0 +1,149 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+class Projector{
+description : String
+player : StreamingPlayer
++ Projector(description : String, player : StreamingPlayer)
++ on() : void
++ off() : void
++ wideScreenMode() : void
++ tvMode() : void
++ toString() : String
+}
+
+class Lamp {
++ turnOn(): void
++ turnOff(): void
+}
+
+class LampAdapter {
+- lamp: Lamp
++ LampAdapter(lamp: Lamp)
++ on(): void
++ off(): void
+}
+
+class Tuner{
+description : String
+amplifier : Amplifier
+frequency : double
++ Tuner(description : String, amplifier : Amplifier)
++ on() : void
++ off() : void
++ setFrequency(frequency : double) : void
++ setAm() : void
++ setFm() : void
++ toString() : String
+}
+
+class Amplifier{
+description : String
+tuner : Tuner
+player : StreamingPlayer
++ Amplifier(description : String)
++ on() : void
++ off() : void
++ setStereoSound() : void
++ setSurroundSound() : void
++ setVolume(level : int) : void
++ setTuner(tuner : Tuner) : void
++ setStreamingPlayer(player : StreamingPlayer) : void
++ toString() : String
+}
+
+class Screen{
+description : String
++ Screen(description : String)
++ up() : void
++ down() : void
++ toString() : String
+}
+
+class PopcornPopper{
+description : String
++ PopcornPopper(description : String)
++ on() : void
++ off() : void
++ pop() : void
++ toString() : String
+}
+
+class CdPlayer{
+description : String
+currentTrack : int
+amplifier : Amplifier
+title : String
++ CdPlayer(description : String, amplifier : Amplifier)
++ on() : void
++ off() : void
++ eject() : void
++ play(title : String) : void
++ play(track : int) : void
++ stop() : void
++ pause() : void
++ toString() : String
+}
+
+class TheaterLights{
+description : String
++ TheaterLights(description : String)
++ on() : void
++ off() : void
++ dim(level : int) : void
++ toString() : String
+}
+
+class HomeTheaterFacade{
+amp : Amplifier
+tuner : Tuner
+player : StreamingPlayer
+cd : CdPlayer
+projector : Projector
+lights : TheaterLights
+screen : Screen
+popper : PopcornPopper
+lampAdapter: LampAdapter
++ HomeTheaterFacade(amp : Amplifier, tuner : Tuner, player : StreamingPlayer, projector : Projector, screen : Screen, lights : TheaterLights, popper : PopcornPopper)
++ watchMovie(movie : String) : void
++ endMovie() : void
++ listenToRadio(frequency : double) : void
++ endRadio() : void
+}
+
+class StreamingPlayer{
+description : String
+currentChapter : int
+amplifier : Amplifier
+movie : String
++ StreamingPlayer(description : String, amplifier : Amplifier)
++ on() : void
++ off() : void
++ play(movie : String) : void
++ play(chapter : int) : void
++ stop() : void
++ pause() : void
++ setTwoChannelAudio() : void
++ setSurroundAudio() : void
++ toString() : String
+}
+
+Projector--"player" StreamingPlayer
+Tuner--"amplifier" Amplifier
+Amplifier--"tuner" Tuner
+Amplifier--"player" StreamingPlayer
+CdPlayer--"amplifier" Amplifier
+HomeTheaterFacade--"amp" Amplifier
+HomeTheaterFacade--"tuner" Tuner
+HomeTheaterFacade--"player" StreamingPlayer
+HomeTheaterFacade--"cd" CdPlayer
+HomeTheaterFacade--"projector" Projector
+HomeTheaterFacade--"lights" TheaterLights
+HomeTheaterFacade--"screen" Screen
+HomeTheaterFacade--"popper" PopcornPopper
+StreamingPlayer--"amplifier" Amplifier
+HomeTheaterFacade --"lampAdapter" LampAdapter
+LampAdapter --"lamp" Lamp
+
+@enduml
